@@ -1,0 +1,1 @@
+1.post数据传输时的汉字乱码问题，contentType=text/html charset=utf-8 具体表现：text空白处填入汉字（刘伟乐）,request.getParameter()获取的结果变成了乱码，在此输入获取后面界面比较会出现乱码情况。
