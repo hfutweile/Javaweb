@@ -1,5 +1,5 @@
 <%@page contentType="text/html;charset=utf-8"%>
-<%@page include="java.util.*"%>
+<%@page import="java.util.*"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -25,7 +25,20 @@
 	date=(Date)session.getAttribute("date");
 	Calendar calendar=Calendar.getInstance();
 	calendar.setTime(date);
-	long timeIns
+	long timeInSession=calendar.getTimeInMillis();
+	long currentTime=0;
+	if (session.isNew()==false) {
+		currentTime=System.currentTimeMillis();
+	}
+	session.setAttribute("date",new Date(currentTime));
+	long intervalTime=(currentTime-timeInSession)/1000;
+	if (intervalTime<=time&&session.isNew()==false) {
+		out.println("请"+time+"秒后再访问此页");
+	}
+	else{
+	out.println("你输入的字符串的长度："+str.length());
+}
 %>
+
 </body>
 </html>
